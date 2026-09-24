@@ -1,6 +1,4 @@
-# carl.gemini-chat
-
-Gemini chat for the Omarchy shell, powered directly by the Gemini API. Paste
+AI chat wrapper for the Omarchy shell, powered directly by the Gemini API. Paste
 an API key once and chat with Gemini from a native panel — no CLI, no OAuth.
 
 ## What it does
