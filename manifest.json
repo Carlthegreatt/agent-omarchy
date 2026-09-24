@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "carl.gemini-chat",
+  "name": "Chat",
+  "version": "0.1.0",
+  "author": "carl",
+  "description": "Gemini chat panel for the Omarchy shell, powered directly by the Gemini API. Paste a Gemini API key once and converse with Gemini from a native panel summoned with SUPER+G or from the menu. Replies stream as they are generated.",
+  "kinds": [
+    "service",
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "service": "Service.qml",
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Chat",
+    "description": "Chat with Gemini using the Gemini API. Opens the chat panel; left click toggles.",
+    "category": "AI",
+    "aliases": [
+      "gemini",
+      "api",
+      "chat",
+      "ai"
+    ],
+    "allowMultiple": false,
+    "defaultSection": "right"
+  }
+}

@@ -1,0 +1,8 @@
+# Local secrets and per-machine state — never commit these.
+api_key
+model
+view
+history.json
+usage.json
+limits.json
+*.log
