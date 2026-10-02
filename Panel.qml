@@ -7,8 +7,8 @@ import qs.Ui
 
 Panel {
   id: root
-  moduleName: "omagent"
-  ipcTarget: "omagent"
+  moduleName: "omaigent"
+  ipcTarget: "omaigent"
   manageIpc: false
 
   property var anchorItem: null
@@ -21,7 +21,7 @@ Panel {
 
   function ensureService() {
     if (!root.service && root.bar && root.bar.shell) {
-      root.service = root.bar.shell.serviceFor("omagent")
+      root.service = root.bar.shell.serviceFor("omaigent")
     }
   }
 

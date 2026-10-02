@@ -15,7 +15,7 @@ Item {
   property var shell: null
   property var manifest: null
 
-  readonly property string pluginId: manifest && manifest.id ? String(manifest.id) : "omagent"
+  readonly property string pluginId: manifest && manifest.id ? String(manifest.id) : "omaigent"
   readonly property string home: Quickshell.env("HOME") || ""
   readonly property string pluginDir: home + "/.config/omarchy/plugins/" + pluginId
   readonly property string keyFile: pluginDir + "/api_key"
@@ -198,7 +198,7 @@ Item {
     attachProc.command = [
       "bash", "-lc",
       'IN="$0"; OUT="$1"; magick "$IN" -resize "1568x1568>" -quality 82 "jpg:$OUT" && base64 -w0 "$OUT"; RC=$?; rm -f "$OUT"; exit $RC',
-      p, root.runtimeDir + "/omagent-attach.jpg"
+      p, root.runtimeDir + "/omaigent-attach.jpg"
     ]
     attachProc.running = true
   }
@@ -213,7 +213,7 @@ Item {
       'if [ -z "$T" ]; then echo "NOIMAGE" >&2; exit 3; fi; ' +
       'wl-paste --type "$T" > "$IN" && magick "$IN" -resize "1568x1568>" -quality 82 "jpg:$OUT" && base64 -w0 "$OUT"; ' +
       'RC=$?; rm -f "$IN" "$OUT"; exit $RC',
-      root.runtimeDir + "/omagent-clipboard", root.runtimeDir + "/omagent-attach.jpg"
+      root.runtimeDir + "/omaigent-clipboard", root.runtimeDir + "/omaigent-attach.jpg"
     ]
     attachProc.running = true
   }

@@ -4,7 +4,7 @@ import qs.Ui
 
 BarWidget {
   id: root
-  moduleName: "omagent"
+  moduleName: "omaigent"
 
   // Writable so a future shell injection cannot break; resolved through
   // the bar when the shell does not assign it directly.
@@ -12,7 +12,7 @@ BarWidget {
 
   function ensureService() {
     if (!root.service && root.bar && root.bar.shell) {
-      root.service = root.bar.shell.serviceFor("omagent")
+      root.service = root.bar.shell.serviceFor("omaigent")
     }
   }
 
