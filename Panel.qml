@@ -7,8 +7,8 @@ import qs.Ui
 
 Panel {
   id: root
-  moduleName: "carl.gemini-chat"
-  ipcTarget: "carl.gemini-chat"
+  moduleName: "omagent"
+  ipcTarget: "omagent"
   manageIpc: false
 
   property var anchorItem: null
@@ -21,7 +21,7 @@ Panel {
 
   function ensureService() {
     if (!root.service && root.bar && root.bar.shell) {
-      root.service = root.bar.shell.serviceFor("carl.gemini-chat")
+      root.service = root.bar.shell.serviceFor("omagent")
     }
   }
 

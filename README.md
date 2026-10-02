@@ -1,3 +1,4 @@
+# Omagent
 AI chat wrapper for the Omarchy shell, powered directly by the Gemini API. Paste
 an API key once and chat with Gemini from a native panel — no CLI, no OAuth.
 
@@ -6,7 +7,7 @@ an API key once and chat with Gemini from a native panel — no CLI, no OAuth.
 - Adds a Gemini glyph to the bar (right side). Left click toggles the chat
   panel; the icon turns accent-coloured when an API key is saved.
 - `SUPER+G` opens the panel from anywhere (keybinding added below).
-- A menu entry (`AI -> Gemini Chat`) summons the panel too.
+- A menu entry (`AI -> Omagent`) summons the panel too.
 - Replies stream token-by-token as they are generated.
 - Images: the paperclip button stages one picture per message — paste it
   from the clipboard or pick a file. It is downscaled to 1568px JPEG,
@@ -27,7 +28,7 @@ an API key once and chat with Gemini from a native panel — no CLI, no OAuth.
    reused on every restart. You can also pre-seed it from a terminal:
 
    ```sh
-   umask 077 && printf '%s' 'YOUR_KEY' > ~/.config/omarchy/plugins/carl.gemini-chat/api_key
+   umask 077 && printf '%s' 'YOUR_KEY' > ~/.config/omarchy/plugins/Omagent/api_key
    ```
 
    An env-var fallback (`GEMINI_API_KEY`, then `GOOGLE_API_KEY`) is used when
@@ -37,7 +38,7 @@ an API key once and chat with Gemini from a native panel — no CLI, no OAuth.
    `model` file (default is `gemini-3.6-flash`):
 
    ```sh
-   printf '%s' 'gemini-3.6-flash' > ~/.config/omarchy/plugins/carl.gemini-chat/model
+   printf '%s' 'gemini-3.6-flash' > ~/.config/omarchy/plugins/omagent/model
    ```
 
    The panel also lists the models your key can use automatically and switches
@@ -60,7 +61,7 @@ recent turns, `temperature: 0.7`).
 ## Files
 
 ```
-carl.gemini-chat/
+omagent/
 ├── manifest.json   plugin manifest (validated by `omarchy plugin validate`)
 ├── Service.qml     API-key store + chat bridge (curl streaming via Process)
 ├── Panel.qml       chat window UI + API-key entry view
@@ -72,11 +73,11 @@ carl.gemini-chat/
 
 ```sh
 # The plugin folder already lives in the user plugin dir; check it shows up:
-omarchy plugin list | grep gemini-chat
+omarchy plugin list | grep omagent
 # Enable (and place the bar icon) if it isn't already:
-omarchy plugin enable carl.gemini-chat right
+omarchy plugin enable omagent right
 # Validate the manifest:
-omarchy plugin validate ~/.config/omarchy/plugins/carl.gemini-chat
+omarchy plugin validate ~/.config/omarchy/plugins/omagent
 ```
 
 Edits under `~/.config/omarchy/plugins/` hot-reload on save. If a change
@@ -93,18 +94,18 @@ omarchy-shell shell rescanPlugins
 
   ```lua
   hl.unbind("SUPER + G")  -- was: Toggle window grouping
-  o.bind("SUPER + G", "Gemini Chat", "omarchy shell shell toggle carl.gemini-chat '{}'")
+  o.bind("SUPER + G", "Omagent", "omarchy shell shell toggle omagent '{}'")
   ```
 
 - Menu entry (`~/.config/omarchy/extensions/omarchy-menu.jsonc`), add:
 
   ```jsonc
-  "ai.gemini-chat": {
+  "ai.omagent": {
     "icon": "\udb85\udea1",
-    "label": "Gemini Chat",
+    "label": "Omagent",
     "aliases": ["gemini", "ai"],
     "description": "Chat with Gemini",
-    "action": "omarchy shell shell toggle carl.gemini-chat '{}'"
+    "action": "omarchy shell shell toggle omagent '{}'"
   }
   ```
 
